@@ -1,13 +1,3 @@
-DebugIntro
-
-FloatSums.c : 	This code prints a variety of values found by summing floats. 
-	In particular it sums small numbers onto a larger one. 
-	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?
-
-Overflow.c: Overflows and Epsilon
-	This code does some overflowing calculations, and then tries to store large integers into floats
-	
-	Try swapping eg_int for long and/or eg_float for double. 
 
 Actual commands are in (), see e.g. https://sourceware.org/gdb/onlinedocs/gdb/ for command details
 
@@ -141,7 +131,8 @@ Val_eg2.c : Unitialised value
 	
 	Once again, Valgrind tries to help
 		Use --track-origins=yes to see where uninitialised values come from
-	When we do this, we see that the bad value was created in the sum function
+	When we do this, we see that the bad value was created in the sum function.
+	Sadly I don't get anything more useful than that, but I can go to the source code and see the problem
 
 val_eg3.c : Memory Leak
 	Here we create a memory leak and some other issues
@@ -158,5 +149,6 @@ val_eg3.c : Memory Leak
 		Rerun with --leak-check=full to see details of leaked memory
 	Obey the line. It points us to where the leaking memory is allocated (not where it gets lost)
 	If you solved the random elements problem, it should be fairly obvious why we have a leak. (Hint: what happens to the array from the previous iteration?)
+	Fix the leak, and check it's fixed
 		
 	
