@@ -1,5 +1,20 @@
 DebugIntro
 
+03 Overflows:
+
+	Things to try:
+		http://www.cplusplus.com/reference/climits/
+		C only defines the minimum length of integer types. Normal ints must be at least 2 bytes but are nearly always 4. 
+		There are also long ints, which (can be) longer than normal ints, and must be at least 4 bytes.
+		Check the values of LONG_MIN and LONG_MAX and compare them to INT
+		
+		There are also short ints SHRT_MIN at least 2 bytes
+		Since C99 there are long long ints which are at least 8 bytes. See if your system has LLONG_MIN and LLONG_MAX and if so, their sizes. 
+		
+		Unsigned ints don't have a sign so can be larger. Line 23 shows one gotcha with these types: what is it doing?
+		
+		Floating point numbers also have limits. 
+		
 FloatSums.c : 	This code prints a variety of values found by summing floats. 
 	In particular it sums small numbers onto a larger one. 
 	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?

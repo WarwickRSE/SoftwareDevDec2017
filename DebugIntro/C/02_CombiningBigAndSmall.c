@@ -20,11 +20,11 @@ int main(int argc, char** argv){
   eg_float array[size];
   double sum_d;
   float sum_f;
-  eg_float sum_onto, init = 2.34642e7;
+  eg_float sum_onto, init = 2.34642e5;
 
   fill_array(array, size);
 
-  printf("Values to 3dp:");
+  printf("Array of %d random values, printed to 3dp:");
 
   for(i=0; i<size; i++){
     printf("%6.3f\t", array[i]);
@@ -36,7 +36,7 @@ int main(int argc, char** argv){
 
   printf("\n");
 
-  printf("Sums are: %30.26e %30.26e\n", sum_d, sum_f);
+  printf("Summed as floats (32bit) %12.10f and as double (64bit) %12.10f\n", sum_d, sum_f);
   printf("Difference is: %10.6e\n", sum_d-sum_f);
 
   sum_onto = sum_onto_value(array, size, init);
@@ -44,10 +44,10 @@ int main(int argc, char** argv){
   printf("\n");
 
 
-  printf("The sum of %10.6e and the array is: %10.6e\n", init, sum_onto);
-  printf("Difference between onto-init and array sums are: %10.6e %10.6e\n", 
-     (sum_onto-init)-sum_f, (sum_onto-init)-sum_d);
-
+  printf("Starting with %10.6e and adding on the array values gives: %10.6e\n", init, sum_onto);
+  printf("This gives an error of %10.6e in the sum\n",
+     (sum_onto-init)-sum_f);
+  /* If you change the define to double type, change the line above to use sum_d*/
 
 }
 
