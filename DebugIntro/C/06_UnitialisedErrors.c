@@ -1,98 +1,48 @@
 #include <stdio.h>
 #include <float.h>
+#include <stdlib.h>
 #include <time.h>
 
-#define size 10
-#define IRANGE 1000
-#define eg_int int
-#define eg_float float
-
-void fill_array(eg_int* array, int array_size);
-
-void fill_array_exp(eg_int* array, int array_size);
+#define size 15
 
 int main(int argc, char** argv){
 
-  int i = 0;
-  eg_int array[size], spacing, product;
-  eg_float value_as_float, incremented_value;
+  int * array, * array2;
+  int i, new_size = 0;
 
-  fill_array(array, size);
+  array = malloc(size*sizeof(int));
+  for(i = 0; i< size; i++){
+    array[i] = i;
+  }
+  printf("These values are set initially:\n");
+  for(i = 0; i< size; i++){
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+  free(array);
 
-  printf("Random values from 0 to %d: ", IRANGE);
+  if(argc > 1){
+    new_size = atoi(argv[1]);
+  }
+  if(new_size <= 0) new_size = size;
 
-  for(i=0; i<size; i++){
-    printf("%d\t", array[i]);
+  array2 = malloc(new_size*sizeof(int));
+
+  array = malloc(size*sizeof(int));
+
+  printf("\nThis is the array of size you requested, and should be junk:\n");
+  for(i = 0; i< new_size; i++){
+    printf("%d ", array2[i]);
   }
   printf("\n");
 
-  product = 1;
-  for(i=0; i<size; i++){
-   printf("%d \ttimes \t%d \tis %d\n", product, array[i], product*array[i]);
-   product *= array[i];
-  }
+  printf("\nThis is another array, and should be junk:\n");
 
-  fill_array_exp(array, size);
-
-  printf("\n");
-  printf("Random values of generally increasing size: ");
-
-  for(i=0; i<size; i++){
-    printf("%d\t", array[i]);
+  for(i = 0; i< size; i++){
+    printf("%d ", array[i]);
   }
   printf("\n");
-  printf("\n");
-
-
-  printf("Now print the value (float) value+1 - (float) value\n");
-  for(i=0; i<size; i++){
-    value_as_float = (eg_float) array[i];
-    incremented_value = value_as_float + 1;
-    spacing = incremented_value - value_as_float;
-    printf("%d\t", spacing);
-  }
-
-  printf("\n");
-
-
+  free(array);
+  free(array2);
 
 }
-
-void fill_array(eg_int* array, int array_size){
-
-  int i;
-
-#  ifndef DEBUG
-  srand(time(NULL)); /*Init RNG with current time*/
-#  else
-  srand(1287);/*Use a fixed seed */
-#  endif
-
-  /*Fill array with random values.
-  For simplicity use rand / 100 */
-
-  for(i=0; i< array_size; i++){
-    array[i] = rand()%IRANGE;
-  }
-}
-
-void fill_array_exp(eg_int* array, int array_size){
-
-  int i;
-  int range = 1000;
-
-#  ifndef DEBUG
-  srand(time(NULL)); /*Init RNG with current time*/
-#  else
-  srand(1287);/*Use a fixed seed */
-#  endif
-
-  /*Fill array with random values.
-  For simplicity use rand / 100 */
-
-  for(i=0; i< array_size; i++){
-    array[i] = rand()%range;
-    range *= 100;
-  }
-}
-

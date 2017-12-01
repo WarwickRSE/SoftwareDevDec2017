@@ -31,7 +31,51 @@ DebugIntro
 		
 05 NaNContagion.c: This program explores NaN
 	Things to Try:
-		Using the facts about NaN comparisons implement the isNaN function at the end of the program. Test it with some numbers
+		Using the facts about NaN comparisons implement the isNaN function at the end of the program. Test it with some numbers.
+		Modern C (post 99) has an isNaN function in math.h but it is worth knowing how to quickly do your own
+		
+06 Uninitialised Errors.c: 
+	
+	Things to Try:
+	
+		This program does something a little subtle: it allocates an array, frees it, and then reallocates it. Depending on what has happened in the meantime, you may or may not happen to reallocate exactly the same block of memory. 
+		Run the program, giving one integer between 0 and 100. 
+		The first array should be the numbers 1 to 15. 
+		This memory is now freed. 
+		Next is an array of whatever size you entered. 
+		Last is another array. 
+		Depending on the sizes, sometimes one or other array gets that chunk of memory we just freed, and contains "data"
+		
+		Try also with optimisation on. You probably find the ``junk'' is more junky. 
+		
+		This sort of error is very hard to spot, and is a good reason to always initialise your variables!
+		
+07 AccessErrors.c
+
+	Things to try:
+		This program has two chunks. Compiler with -DARR or -DBUFF to get them
+		
+		These sorts of errors are very unpredictable. The first part of this code (ARR) writes beyond it's array bounds. It randomly chooses to write to one of two arrays. On my system this alternates between an access violation, and overwriting the start of the next array. 
+
+		The second part of the code (BUFF) tries to print a string missing a null-terminator. Usually you get the content of the string and then some junk, often unprintable characters shown as ``?''. 
+		
+		
+08 BadPointer.c
+		In this example you'll have to ignore the error about integer to pointer conversion.
+		This code tries to access really bad memory, which is usually a seg-fault.
+		
+
+09 Tarpit.c
+		This code has a logic bug which makes it very very slow. 
+		
+		If you compile and run, you'll see numbers printed. If it takes a very long time or no time at all, adjust the reps parameter
+		
+		The code is writing to a file, but accidentally opening it every iteration. You'll probably also notice the numbers go in pulses, when the writing actually flushes to disk. 
+
+		Recompile the program with -DFIX and see how much faster it is without the unneeded work. 
+		
+		Run with the option `-q' to omit printing i at every step
+
 
 
 
