@@ -1,4 +1,11 @@
 DebugIntro
+		
+01 RoundingAndTruncation.c:	
+		
+02 CombiningBigAndSmall.c : 	This code prints a variety of values found by summing floats. 
+	In particular it sums small numbers onto a larger one. 
+	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?
+
 
 03 Overflows:
 
@@ -14,12 +21,17 @@ DebugIntro
 		Unsigned ints don't have a sign so can be larger. Line 23 shows one gotcha with these types: what is it doing?
 		
 		Floating point numbers also have limits. 
-		
-FloatSums.c : 	This code prints a variety of values found by summing floats. 
-	In particular it sums small numbers onto a larger one. 
-	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?
+		The IEEE (I triple-E) standards define strictly what behaviour must be. The program 03-05_InfAndNanTable.c shows the required values of operations on Inf and NaN (see also 05) values. 
 
-Overflow.c: Overflows and Epsilon
-	This code does some overflowing calculations, and then tries to store large integers into floats
-	
-	Try swapping eg_int for long and/or eg_float for double. 
+04 MixedMode.c:	This program demos the dangers of combining int and float in a simple program
+	Things to Try:
+		In general operands are promoted to the "biggest" type involved in a single operation (biggest here means that ints will be boosted to longs, but can also be boosted to floats). Using the order of operations  (BODMAS, PEMDAS etc) work out what is happening. Note that the division operator "associates with" a number to its right. Note also that C doesn't guarantee 
+		
+		adjust the erroneous calculation on line 15 to be correct.
+		
+05 NaNContagion.c: This program explores NaN
+	Things to Try:
+		Using the facts about NaN comparisons implement the isNaN function at the end of the program. Test it with some numbers
+
+
+

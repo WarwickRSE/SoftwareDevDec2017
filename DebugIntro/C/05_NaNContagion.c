@@ -1,98 +1,50 @@
 #include <stdio.h>
-#include <float.h>
-#include <time.h>
 
-#define size 10
-#define IRANGE 1000
-#define eg_int int
-#define eg_float float
+#define size 12
 
-void fill_array(eg_int* array, int array_size);
-
-void fill_array_exp(eg_int* array, int array_size);
+int isNaN(float input);
 
 int main(int argc, char** argv){
 
-  int i = 0;
-  eg_int array[size], spacing, product;
-  eg_float value_as_float, incremented_value;
+  float isNaN = 0.0/0.0;
+  float a = 3.0;
+  float array[size], new_array[size];
+  int i = 0, j = 0;
 
-  fill_array(array, size);
+  printf("NaN (not a number) occurs from operations like 0.0/0.0 or sqrt(-1)\n");
+  printf("NaN is contagious: any calculation with it gives NaN\n");
 
-  printf("Random values from 0 to %d: ", IRANGE);
+  printf("%f + %f = %f\n", a, isNaN, a + isNaN);
+  printf("%f * %f = %f\n", a, isNaN, a * isNaN);
 
-  for(i=0; i<size; i++){
-    printf("%d\t", array[i]);
+  for(i = 0; i < size; i++){
+    array[i] = i * 2.0;
   }
-  printf("\n");
-
-  product = 1;
-  for(i=0; i<size; i++){
-   printf("%d \ttimes \t%d \tis %d\n", product, array[i], product*array[i]);
-   product *= array[i];
+  printf("\n This means it can spread. This array is updated by summing each element with its neighbours\n");
+  array[size/2] = isNaN;
+  for(j = 0; j < 6; j++){
+    printf("Iter %d\t", j);
+    for(i = 0; i < size; i++){
+      printf("%4.1f\t", array[i]);
+    }
+    printf("\n");
+    for(i = 1; i < size-1; i++){
+      new_array[i] = (array[i-1]+array[i] + array[i+1])/3.0;
+    }
+    for(i = 1; i < size-1; i++){
+      array[i] = new_array[i];
+    }
   }
+  printf("\n\n");
+  printf("NaN is also special in comparisons: it is not equal to anything, even itself.\n");
 
-  fill_array_exp(array, size);
-
-  printf("\n");
-  printf("Random values of generally increasing size: ");
-
-  for(i=0; i<size; i++){
-    printf("%d\t", array[i]);
-  }
-  printf("\n");
-  printf("\n");
-
-
-  printf("Now print the value (float) value+1 - (float) value\n");
-  for(i=0; i<size; i++){
-    value_as_float = (eg_float) array[i];
-    incremented_value = value_as_float + 1;
-    spacing = incremented_value - value_as_float;
-    printf("%d\t", spacing);
-  }
-
-  printf("\n");
-
-
+  printf("%f == %f => %d\n", isNaN, isNaN, isNaN == isNaN);
+  printf("%f < %f => %d\n", isNaN, isNaN, isNaN < isNaN);
+  printf("%f > %f => %d\n", isNaN, isNaN, isNaN > isNaN);
 
 }
 
-void fill_array(eg_int* array, int array_size){
+int isNaN(float input){
 
-  int i;
-
-#  ifndef DEBUG
-  srand(time(NULL)); /*Init RNG with current time*/
-#  else
-  srand(1287);/*Use a fixed seed */
-#  endif
-
-  /*Fill array with random values.
-  For simplicity use rand / 100 */
-
-  for(i=0; i< array_size; i++){
-    array[i] = rand()%IRANGE;
-  }
+  return 0;
 }
-
-void fill_array_exp(eg_int* array, int array_size){
-
-  int i;
-  int range = 1000;
-
-#  ifndef DEBUG
-  srand(time(NULL)); /*Init RNG with current time*/
-#  else
-  srand(1287);/*Use a fixed seed */
-#  endif
-
-  /*Fill array with random values.
-  For simplicity use rand / 100 */
-
-  for(i=0; i< array_size; i++){
-    array[i] = rand()%range;
-    range *= 100;
-  }
-}
-
