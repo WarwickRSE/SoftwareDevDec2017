@@ -61,6 +61,8 @@ DebugIntro
 		Try also with optimisation on. You probably find the ``junk'' is more junky. 
 		
 		This sort of error is very hard to spot, and is a good reason to always initialise your variables!
+
+		In Fortran there is an unintended intitialisation effect demo'd by the function total. Initialising in the declaration gives the running_total variable the "SAVE" attribute, which means it keeps its value between calls of the function. It looks like we properly initialised the value, but each time we call the function the result grows. Here the error is obvious: in practice it can be very tricky to spot
 		
 07 AccessErrors.c
 
