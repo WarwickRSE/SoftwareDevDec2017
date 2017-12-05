@@ -30,6 +30,10 @@ DebugIntro
 		
 		Floating point numbers also have limits. 
 		The IEEE (I triple-E) standards define strictly what behaviour must be. The program 03-05_InfAndNanTable.c shows the required values of operations on Inf and NaN (see also 05) values. 
+		
+		Note 1: Here FLT_MAX + 1 is still FLT_MAX because the finite Epsilon for a value this large is more than 1. Try finding the minimum needed to add to get inf
+		
+		Note 2: Here we are running into what are called denormal numbers. Usually the base part of the number is a number between 0.0 and 1.0 as in normal scientific notation. In denormal numbers this is a pure decimal. This allows the representation of smaller numbers, but at lower precision. 
 
 04 MixedMode.c:	This program demos the dangers of combining int and float in a simple program
 	Things to Try:

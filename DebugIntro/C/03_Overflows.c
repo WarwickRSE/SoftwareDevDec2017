@@ -32,11 +32,13 @@ int main(int argc, char** argv){
 
   bb = b * 1.1;
   printf("FLT_MAX * 1.1 is %10.6e\n", bb);
-  bb + 1;
+
+  printf("Bonus: the following is unexpected! See first note.");
+  bb = b + 1.0;
   printf("FLT_MAX + 1 is %10.6e\n", bb);
 
 
-  printf("Bonus: the following is unexpected! See note.");
+  printf("Bonus: the following is unexpected! See second note.");
   bb = a /1.1;
   printf("FLT_MIN / 1.1 is %10.6e\n", bb);
 
