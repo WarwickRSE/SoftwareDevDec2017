@@ -67,11 +67,13 @@ DebugIntro
 07 AccessErrors.c
 
 	Things to try:
-		This program has two chunks. Compiler with -DARR or -DBUFF to get them
+		In C ONLY: This program has two chunks. Compiler with -DARR or -DBUFF to get them
 		
 		These sorts of errors are very unpredictable. The first part of this code (ARR) writes beyond it's array bounds. It randomly chooses to write to one of two arrays. On my system this alternates between an access violation, and overwriting the start of the next array. 
 
-		The second part of the code (BUFF) tries to print a string missing a null-terminator. Usually you get the content of the string and then some junk, often unprintable characters shown as ``?''. 
+		IN FORTRAN: gfortran offers -fbounds-check and most compilers have something similar. This will make array bounds errors fatal errors. Note it can be costly fr performance so is best used as a debug option. Check it catches the errors here as you expect
+
+		In C ONly, there is a second part. The second part of the code (BUFF) tries to print a string missing a null-terminator. Usually you get the content of the string and then some junk, often unprintable characters shown as ``?''. 
 		
 		
 08 BadPointer.c
