@@ -12,9 +12,8 @@ int main(int argc, char** argv){
   int quiet = 0;
 
   if(argc > 1){
-    if(strcmp(argv[1], "-q")) quiet = 1;
+    if(strcmp(argv[1], "-q") == 0) quiet = 1;
   }
-
 
  /* Opening once for write truncates any content*/
   fileptr = fopen("./tmp.out", "w");
@@ -23,7 +22,7 @@ int main(int argc, char** argv){
 
 #ifndef FIX
   for(i = 0; i< reps; i++){
-    if(quiet) printf("%d\n", i);
+    if(!quiet) printf("%d\n", i);
     fileptr = fopen("./tmp.out", "a");
     fprintf(fileptr, "%d ", i);
     fclose(fileptr);
@@ -31,7 +30,7 @@ int main(int argc, char** argv){
 #else
   fileptr = fopen("./tmp.out", "a");
   for(i = 0; i< reps; i++){
-    if(quiet) printf("%d\n", i);
+    if(!quiet) printf("%d\n", i);
     fprintf(fileptr, "%d ", i);
   }
   fclose(fileptr);
