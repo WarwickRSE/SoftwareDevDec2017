@@ -76,10 +76,11 @@ DebugIntro
 		In C ONly, there is a second part. The second part of the code (BUFF) tries to print a string missing a null-terminator. Usually you get the content of the string and then some junk, often unprintable characters shown as ``?''. 
 		
 		
-08 BadPointer.c
-		In this example you'll have to ignore the error about integer to pointer conversion.
+08 BadPointer.c/BadAllocation.f90
+		IN C: In this example you'll have to ignore the error about integer to pointer conversion.
 		This code tries to access really bad memory, which is usually a seg-fault.
-		
+		In Fortran: this code tries to access unallocated memory. It also tries to do bad things like allocate an already allocated array. Remove the first bug and retry
+			If you're familiar with Fortran pointers, there is an example using these too. You can ignore these if not. 
 
 09 Tarpit.c
 		This code has a logic bug which makes it very very slow. 
