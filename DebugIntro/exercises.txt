@@ -107,9 +107,12 @@ DebugIntro
 		
 		The code is writing to a file, but accidentally opening it every iteration. You'll probably also notice the numbers go in pulses, when the writing actually flushes to disk. 
 
-		Recompile the program with -DFIX and see how much faster it is without the unneeded work. 
+		In C/Fortran: Recompile the program with -DFIX and see how much faster it is without the unneeded work. 
+		In Python: run with fix to use a fixed version without the extra work
 		
 		Run with the option `-q' to omit printing i at every step
+		
+		
 
 
 
