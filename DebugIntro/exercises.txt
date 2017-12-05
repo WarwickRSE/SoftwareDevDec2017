@@ -39,12 +39,12 @@ DebugIntro
 	Things to Try:
 		In general operands are promoted to the "biggest" type involved in a single operation (biggest here means that ints will be boosted to longs, but can also be boosted to floats). Using the order of operations  (BODMAS, PEMDAS etc) work out what is happening. Note that the division operator "associates with" a number to its right. Note also that C doesn't guarantee 
 		
-		adjust the erroneous calculation on line 15 to be correct.
+		adjust the erroneous calculation on line 15 (C)/ 23 (Fortran)/ (Python) to be correct.
 		
 05 NaNContagion.c: This program explores NaN
 	Things to Try:
 		Using the facts about NaN comparisons implement the isNaN function at the end of the program. Test it with some numbers.
-		Modern C (post 99) has an isNaN function in math.h but it is worth knowing how to quickly do your own
+		Modern C (post 99) has an isNaN function in math.h and modern Fortran compilers support something similar but it is worth knowing how to quickly do your own
 		
 06 Uninitialised Errors.c: 
 	
