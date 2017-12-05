@@ -7,7 +7,8 @@ DebugIntro
 		the double version of pi is correct to about 15 dp, the float version to about 7dp
 		In Fortran also notice when we set d we must specify 64-bit. In C literals are double precision by default
 		
-		
+		What we set as 0.01 might not come out that way, and what we do see depends on formatting
+		Summing a rather small number many times often doesn't give quite the expected result. This makes it risky as a loop condition as you can get 1 (or rarely more) fewer or extra loops depending on platform, optimisation levels etc
 	
 02 CombiningBigAndSmall.c : 	This code prints a variety of values found by summing floats. 
 	In particular it sums small numbers onto a larger one. 
