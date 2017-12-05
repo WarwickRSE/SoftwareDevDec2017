@@ -15,7 +15,7 @@ int main(int argc, char** argv){
 
   printf("A normal 4 byte integer must be between INT_MIN of %d and INT_MAX of %d\n", k, j);
   printf("Adding one to INT_MAX: %d + 1 = %d\n", j, j+1);
-  printf("Subtracting one from INT_MIN: %d + 1 = %d\n", k, k-1);
+  printf("Subtracting one from INT_MIN: %d - 1 = %d\n", k, k-1);
 
   printf("\n");
 
