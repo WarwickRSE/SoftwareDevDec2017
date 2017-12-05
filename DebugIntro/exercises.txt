@@ -12,7 +12,7 @@ DebugIntro
 	
 02 CombiningBigAndSmall.c : 	This code prints a variety of values found by summing floats. 
 	In particular it sums small numbers onto a larger one. 
-	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?
+	Check what difference it makes to change eg_float (eg_kind in Fortran) to a double (real64). What sort of value for init then makes the error a similar size to the array elements?
 
 
 03 Overflows:
