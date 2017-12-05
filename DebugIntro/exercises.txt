@@ -1,7 +1,14 @@
 DebugIntro
 		
-01 RoundingAndTruncation.c:	
+01 RoundingAndTruncation.c/.f90:	
+	This demonstrates how single and double precision floats can be inexact, and what this can do unexpectedly
+	Try the program with a few optimisation levels etc, as this can sometimes change things. 
+	Notice:
+		the double version of pi is correct to about 15 dp, the float version to about 7dp
+		In Fortran also notice when we set d we must specify 64-bit. In C literals are double precision by default
 		
+		
+	
 02 CombiningBigAndSmall.c : 	This code prints a variety of values found by summing floats. 
 	In particular it sums small numbers onto a larger one. 
 	Check what difference it makes to change eg_float to a double. What sort of value for init then makes the error a similar size to the array elements?

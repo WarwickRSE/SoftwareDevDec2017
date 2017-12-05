@@ -10,7 +10,7 @@ why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array */
 int main(int argc, char** argv){
 
     int data[arraySize];
-    int i, j, iters = 10000;
+    int i, j, iters = 1000;
     clock_t start, end;
     double time;
     long long sum = 0;

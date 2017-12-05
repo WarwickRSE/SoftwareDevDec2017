@@ -152,3 +152,10 @@ val_eg3.c : Memory Leak
 	Fix the leak, and check it's fixed
 		
 	
+Profiling Examples:
+
+Prof_branch.c: This demos branch prediction. It may or may not work, since some architectures manage to predict even these branches. 
+	In theory, you should see that the normal version takes a given time, the one with -DBR_1 very similar time, and -DBR_2 and -DBR_3 take rather longer. The similar times in the first two show it is not the sum calculation changing the timing, but the misses. If you are on a machine with a tool like perf you can run a basic stats using
+	perf stats {program_name}
+	IF you saw speed differences, you will probably see varying numbers under ``branch-misses             #    0.00% of all branches ''
+		
