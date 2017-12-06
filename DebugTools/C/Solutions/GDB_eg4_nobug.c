@@ -75,8 +75,10 @@ int get_index_of_value(int* array, int array_size, int target){
   stride = array_size/2;
   centre = array_size/2;
 
-  for(i=0; i<array_size; i++){
-    /*Array_size is max number possible iterations, wont need this many*/
+  for(i=0; i<array_size-1; i++){
+    /*Actually need log_2(array_size) but size-1 is strict upper bound
+      and our early break will always take care of the termination
+    */
 #ifdef DEBUG
     printf("Iteration: %d ", i);
     printf("Stride %d, centre %d\n", stride, array[centre]);

@@ -67,7 +67,7 @@ GDB_eg4.c : A simple binary search in ordered list of integers, with various bug
 	There's some helpful compiler flags in this code (ifdef /ifndef) Find them and see what they do. (Hint, there's some extra output, and around line 53 a very useful change)
 	Note line 6 which sets the array size: even numbers, powers of 2 etc will have significant effects in this code. 
 	
-	If your compiler hasn't already warned you of one bug, turn on all warnings (-Wall in gcc)
+	IN C: If your compiler hasn't already warned you of one bug, turn on all warnings (-Wall in gcc)
 	
 	
 	BUGS:

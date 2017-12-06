@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define size 16
+#define size 17
 
 int get_index_of_value(int* array, int array_size, int value);
 void fill_array(int* array, int array_size);
@@ -72,7 +72,7 @@ int get_index_of_value(int* array, int array_size, int target){
 
   int stride;
   int i,j, centre;
-  int lower=0, upper=array_size;
+  int lower=1, upper=array_size;
 
   stride = array_size/2;
   centre = array_size/2;
