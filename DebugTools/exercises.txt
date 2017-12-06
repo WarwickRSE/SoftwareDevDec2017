@@ -135,13 +135,15 @@ Val_eg2.c : Unitialised value
 	When we do this, we see that the bad value was created by the sum function.
 	Sadly I don't get anything more useful than that, but I can go to the source code and see the problem
 
-val_eg3.c : Memory Leak
+Val_eg3.c : Memory Leak
 	Here we create a memory leak and some other issues
+	In C/C++ this is perhaps the commonest bug you will encounter
+	In Fortran we use Pointers. Note that you are more likely to be using allocatable arrays, which since F95 at least cannot cause leaks, but this demo is worth looking over.
 	
 	Compile and run the program. You probably don't get any crashes or errors. What it _should_ do is (slowly) print 5 different arrays. 
-	Neither valgrind nor GDB will show you why all 5 arrays are the same. You'll have to look into the code
+	IN C: Neither valgrind nor GDB will show you why all 5 arrays are the same. You'll have to look into the code
 	
-	Once you've fixed that, try running the program inside valgrind (remember to turn off optimisation etc). 
+	Try running the program inside valgrind (remember to turn off optimisation etc). 
 	You wont see an error but should see something like 
 		LEAK SUMMARY:
 ==45574==    definitely lost: 200 bytes in 5 blocks
@@ -149,7 +151,8 @@ val_eg3.c : Memory Leak
 	You should also have a line
 		Rerun with --leak-check=full to see details of leaked memory
 	Obey the line. It points us to where the leaking memory is allocated (not where it gets lost)
-	If you solved the random elements problem, it should be fairly obvious why we have a leak. (Hint: what happens to the array from the previous iteration?)
+	In C: If you solved the random elements problem, it should be fairly obvious why we have a leak. (Hint: what happens to the array from the previous iteration?)
+	In Fortran: each iteration we ALLOCATE a new array. What happens to these?
 	Fix the leak, and check it's fixed
 		
 	
