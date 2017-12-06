@@ -102,9 +102,10 @@ FUNCTION get_index_of_value(array, target_val)
   stride = array_sz/2;
   centre = array_sz/2;
 
-  DO i = 1, array_sz-1
+  DO i = 1, array_sz
     !Actually need only log_2(array_sz) but size-1 is a strict upper
     !bound on number of iterations and we shall break early
+    !But we do want 1 iteration even if size is 1
 
 #ifdef DEBUG
     PRINT*, "Iteration", i

@@ -68,13 +68,13 @@ GDB_eg4.c : A simple binary search in ordered list of integers, with various bug
 	Note line 6 which sets the array size: even numbers, powers of 2 etc will have significant effects in this code. 
 	
 	IN C: If your compiler hasn't already warned you of one bug, turn on all warnings (-Wall in gcc)
-	
+	In Fortran: Use the array bounds checking 
 	
 	BUGS:
 		Array definition has size-1 not size
-		index is unsigned, but fill_array returns -1 for not found. Bonus that the check fails, but the print shows -1 because it's a signed format code
-		Loop on line 78 is fine unless array_size is 1, i which case we get no iterations
-		Bug that debugger wont spot: atoi to set target wont care if you don't enter an int
+		C ONly: index is unsigned, but fill_array returns -1 for not found. Bonus that the check fails, but the print shows -1 because it's a signed format code
+		Loop on line 78 (C) 104 (Fortran) is fine unless array_size is 1, i which case we get no iterations
+		Bug that debugger wont spot: (C) atoi to set target wont care if you don't enter an int (Fortran) We don't check our input, so we'll get something but might not be sane
 		
 	
 	
