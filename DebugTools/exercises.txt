@@ -157,6 +157,10 @@ Val_eg3.c : Memory Leak
 		
 	
 Profiling Examples:
+Prof_g.c: Demos basics of profiling. Calls a few levels of function. Using either or both callgrind and a suitable system profiler, work out where the code spends most of its time. 
+Try optimisation levels. You'll probably find that O1 or more will inline the add etc functions and remove the overhead of function call. 
+Try swapping the division operation (89 in C, 121 in Fortran) for the multiply. Does this help? Hinder?
+Try adding file output (write_array function)
 
 Prof_branch.c: This demos branch prediction. It may or may not work, since some architectures manage to predict even these branches. 
 	In theory, you should see that the normal version takes a given time, the one with -DBR_1 very similar time, and -DBR_2 and -DBR_3 take rather longer. The similar times in the first two show it is not the sum calculation changing the timing, but the misses. If you are on a machine with a tool like perf you can run a basic stats using

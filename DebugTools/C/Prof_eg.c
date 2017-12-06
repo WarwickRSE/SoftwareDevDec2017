@@ -20,14 +20,14 @@ int main(int argc, char** argv){
   int i;
   int n_iter = 10000;
   array = malloc(size*sizeof(int));
-  
+
   fill_array(array, size);
-  
+
   for(i = 0; i < n_iter; i++){
     printf("%d\n", i);
     solve_array(array, size);
   }
-  
+
   free(array);
   return 0;
 }
@@ -87,7 +87,7 @@ a useful algorithm
 
     add_to_element(array + i, inc);
     if(array[i] > 100.0) divide_element(array + i, div);
-    if(array[i] > 100.0) multiply_element(array + i, recip_div);
+    /*if(array[i] > 100.0) multiply_element(array + i, recip_div);*/
 
   }
 
