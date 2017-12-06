@@ -103,7 +103,7 @@ Val_eg1.c : Heap array bounds violation
 	which tells us we're now reading this value back
 	Finally I get one more invalid read, for 3 total errors
 	
-	On my machine, when I turn on optimisation (O1) Valgrind finds only 2 errors: the invalid read of a[10] is no longer noticed!
+	On my machine, in C when I turn on optimisation (O1) Valgrind finds only 2 errors: the invalid read of a[10] is no longer noticed!
 	
 	Fix the cause of the first error(s), the invalid access on `a'
 	
@@ -112,7 +112,7 @@ Val_eg1.c : Heap array bounds violation
 		....
 		Address 0x1007ff994 is 20 bytes inside a block of size 40 free'd
 	This tells us that we are accessing into some memory we already freed. Specifically we are 20 bytes (5 ints) into it. 
-	The cause is easy to spot, rand_ptr = &a[5];
+	The cause is easy to spot, (C) rand_ptr = &a[5]; (Fortran) ptr => a(6)
 
 	Fix the free and the program works as intended
 	
@@ -123,15 +123,16 @@ Val_eg2.c : Unitialised value
 	Try with (at least) O0 and O3. Is there any differences? Either between runs or O levels
 
 
-	Sometimes Valgrind can be ``fooled'': try adding back the print in line 32, and rerun. I see a lot of errors, 
-		Syscall param write(buf) points to uninitialised byte(s)
-	all traced to printing the sum_a on line 31
-	Note that the report has hundreds of errors for a single bad print here. 	
-	You might be tempted to remove the print: try this. Why doesn't it help you?
+	Sometimes Valgrind can be ``fooled'': try adding back the print in line 32 (C) 113 (Fortran), and rerun. I see a lot of errors, 
+		Syscall param write(buf) points to uninitialised byte(s) (C) 
+		Use of uninitialised value of size 8 and  Conditional jump or move depends on uninitialised value(s) (Fortran)
+
+	all traced to printing sum_a
+	Note that the report has hundreds of errors for a single bad print here. 	If you have a bad access like this, it can be tempting to remove it. Try removing both this line and the k++ line. What happens? This is because valgrind only tells you when a bad value is used, to avoid hundreds of false positives
 	
 	Once again, Valgrind tries to help
 		Use --track-origins=yes to see where uninitialised values come from
-	When we do this, we see that the bad value was created in the sum function.
+	When we do this, we see that the bad value was created by the sum function.
 	Sadly I don't get anything more useful than that, but I can go to the source code and see the problem
 
 val_eg3.c : Memory Leak
