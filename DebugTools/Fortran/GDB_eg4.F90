@@ -56,7 +56,7 @@ SUBROUTINE fill_array(array)
 
   array_shape = SHAPE(array)
 #ifdef NORAND
-  DO i =0, array_shape(1)
+  DO i =1, array_shape(1)
     array(i) = i
   ENDDO
 #else
