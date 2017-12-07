@@ -12,7 +12,7 @@ PROGRAM MAIN
 
   ptr => a(6)
 
-  DO i =0, sz + 1
+  DO i =1, sz + 1
     a(i) = i
     PRINT*, i, a(i)
   ENDDO
