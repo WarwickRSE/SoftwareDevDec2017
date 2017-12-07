@@ -1,4 +1,4 @@
-These files are for the Tuesday Morning session, Tools for Testing and Debugging.
+These files are for the Tuesday 12th Dec, AM session, Tools for Testing and Debugging.
 
 In C and Fortran you will need a compiler, gdb or similar debugger, valgrind and for the later examples, make
 
