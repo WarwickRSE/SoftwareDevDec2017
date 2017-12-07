@@ -75,7 +75,7 @@ def main(target = None):
 
   global debug
   sz = 12
-  array =[0] * (sz-1)
+  array =[-1] * (sz-1)
   fill_array(array)
 
   print("Pos")
