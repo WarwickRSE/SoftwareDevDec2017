@@ -1,0 +1,26 @@
+
+This is diff output. The first block (with <) is the buggy version, the second (with >) is working
+
+First bug:
+56c56
+<   values(1,:) = 1.0
+---
+>   values(0,:) = 1.0
+This means that values(0, :) is completely uninitialised
+
+Second bug:
+62c62
+<   CALL display_result(temp_values)
+---
+>   CALL display_result(values)
+temp_values hasn't been set at this point, so we print some nonsense
+
+Third bug:
+66,67c66,67
+<     DO iy = 1, ny-1
+<       DO ix = 1, nx-1
+---
+>     DO iy = 1, ny
+>       DO ix = 1, nx
+The top and right cells will never contribute, so the solution is wrong. No debugger will tell you about this!!
+
