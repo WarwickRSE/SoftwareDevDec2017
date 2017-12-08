@@ -11,17 +11,23 @@ END MODULE KINDS
 PROGRAM MAIN
 
   USE KINDS
+  IMPLICIT NONE
 
   INTEGER :: i = 0
-  INTEGER :: j = HUGE(1), k = -HUGE(1) - 1
+  INTEGER :: j = HUGE(1), k = -HUGE(1)
   REAL(KIND=real32) :: a = TINY(1.0_real32), b = HUGE(1.0_real32), bb
   REAL(KIND=real64) :: c = TINY(1.0_real64), d = HUGE(1.0_real64)
 
   WRITE(*, fmt='(a41, i0, a10, i0)') "A normal 4 byte integer must be between ", &
       k, "and HUGE ", j
   WRITE(*, fmt='(a21, i0, a7, i0)') "Adding one to HUGE: ", j,"+ 1 = ", j + 1
-  WRITE(*, fmt='(a33, i0, a7, i0)') "Subtracting one from -(HUGE+1): ", &
+  WRITE(*, fmt='(a33, i0, a7, i0)') "Subtracting one from -HUGE: ", &
       k,"- 1 = ", k - 1
+  WRITE(*, fmt='(a33, i0, a7, i0)') "Subtracting two from -HUGE: ", &
+      k,"- 2 = ", k - 2
+  PRINT*, "HUGE-1 is nearly always a valid number, but the Fortran standard"&
+    //" considers it out of range for historical reasons"
+
 
   PRINT*, ''
   PRINT*, "Floating point numbers also have limits."

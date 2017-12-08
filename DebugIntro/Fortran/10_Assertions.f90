@@ -5,10 +5,10 @@ MODULE ASSERTS
   SUBROUTINE ASSERT(condition)
     LOGICAL, INTENT(IN) :: condition
     INTEGER:: x, y
-    y = 0
+    y = 0; x = 0
    IF( .NOT. condition) THEN
  !    x = 1/y !Create error to force bad exit
-     STOP "Assert"
+     STOP "Bad n"
    ENDIF
   END SUBROUTINE
 

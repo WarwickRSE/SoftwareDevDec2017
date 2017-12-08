@@ -1,11 +1,15 @@
 
+MODULE HELPERS
+  IMPLICIT NONE
+  CONTAINS
 
-FUNCTION isNaN(input)
-  REAL :: input
-  LOGICAL :: isNaN
-  isNaN = .FALSE.
+  FUNCTION my_isNaN(input)
+    REAL :: input
+    LOGICAL :: my_isNaN
+    my_isNaN = .FALSE.
 
-END FUNCTION isNaN
+  END FUNCTION my_isNaN
+END MODULE HELPERS
 
 PROGRAM MAIN
 
@@ -17,7 +21,7 @@ PROGRAM MAIN
   REAL :: a = 3.0
   REAL, DIMENSION(sz) :: array, new_array
   INTEGER :: i = 0, j = 0
-  isNaN = IEEE_VALUE(1d0, IEEE_QUIET_NAN)
+  isNaN = IEEE_VALUE(1e0, IEEE_QUIET_NAN)
 
   PRINT*, "NaN (not a number) occurs from operations like 0.0/0.0 or sqrt(-1)"
   PRINT*, "NaN is contagious: any calculation with it gives NaN"
@@ -53,9 +57,9 @@ PROGRAM MAIN
 
   PRINT*, "NaN is also special in comparisons: it is not equal to anything, even itself."
 
-  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l)') isNaN, "== ", isNaN, "=> ", isNaN == isNaN
-  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l)') isNaN, "< ", isNaN, "=> ", isNaN < isNaN
-  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l)') isNaN, "> ", isNaN, "=> ", isNaN > isNaN
+  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l1)') isNaN, "== ", isNaN, "=> ", isNaN == isNaN
+  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l1)') isNaN, "< ", isNaN, "=> ", isNaN < isNaN
+  WRITE(*, fmt='(f4.0, a4, f4.0, a4, l1)') isNaN, "> ", isNaN, "=> ", isNaN > isNaN
 
 
 END PROGRAM MAIN

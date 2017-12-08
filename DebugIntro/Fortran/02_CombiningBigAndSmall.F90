@@ -42,16 +42,15 @@ MODULE RANDOM
   END SUBROUTINE
 END MODULE RANDOM
 
-MODULE helpers
-
-CONTAINS
+MODULE HELPERS
+  IMPLICIT NONE
+ CONTAINS
 
 SUBROUTINE fill_array(array)
 
   USE KINDS
   USE RANDOM
   REAL(KIND=eg_kind), DIMENSION(:) :: array
-  INTEGER :: i
 
 #  ifndef DEBUG
   CALL random_init_time()
@@ -133,14 +132,13 @@ FUNCTION sum_onto_value(array, init)
 END FUNCTION sum_onto_value
 
 
-END MODULE helpers
+END MODULE HELPERS
 
 PROGRAM MAIN
 
   USE KINDS
-  USE helpers
+  USE HELPERS
 
-  INTEGER :: i
   INTEGER, PARAMETER :: sz = 15
   REAL(KIND=eg_kind), DIMENSION(sz) :: array
   REAL(KIND=real32) :: sum_32

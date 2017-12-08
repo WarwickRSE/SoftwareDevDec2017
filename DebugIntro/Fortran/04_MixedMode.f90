@@ -11,6 +11,7 @@ END MODULE KINDS
 PROGRAM MAIN
 
   USE KINDS
+  IMPLICIT NONE
 
   REAL(KIND=real32) tempInC, tempInF, correctTempInF
 

@@ -16,7 +16,6 @@ MODULE RANDOM
     ALLOCATE(seed(1:rand_size))
     CALL SYSTEM_CLOCK(time)
     seed = time
-    PRINT*, seed
     CALL RANDOM_SEED(put=seed)
     DEALLOCATE(seed)
 
@@ -51,7 +50,7 @@ PROGRAM MAIN
   CALL random_init_time()
   CALL RANDOM_NUMBER(randval)
   r = INT(randval*2.0)
-  PRINT*, r
+
   IF(r > 0) THEN
     !Fill array2
     DO i = 1, sz + 2
