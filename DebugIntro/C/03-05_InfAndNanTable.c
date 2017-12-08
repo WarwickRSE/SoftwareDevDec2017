@@ -44,6 +44,7 @@ int main(int argc, char** argv){
    printf("\n");
 
   }
+  return 0;
 }
 
 float add(float a, float b){
