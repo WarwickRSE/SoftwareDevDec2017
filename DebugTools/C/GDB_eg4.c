@@ -32,13 +32,13 @@ int main(int argc, char** argv){
   /*Remember about checking inputs!*/
 
   printf("Target is: %d\n", target);
-
   index = get_index_of_value(array, size, target);
   if(index >= 0){
     printf("Found at position %d\n", index);
   }else{
     printf("Value not found\n");
   }
+  return 0;
 }
 
 void fill_array(int* array, int array_size){
@@ -71,7 +71,7 @@ int get_index_of_value(int* array, int array_size, int target){
 /*This is an iterative version, using a loop with early break*/
 
   int stride;
-  int i,j, centre;
+  int i, centre;
   int lower=1, upper=array_size;
 
   stride = array_size/2;

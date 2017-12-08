@@ -23,8 +23,8 @@ int main(int argc, char** argv){
     fill_array(a, size);
   }
   free(a);
+  return 0;
 }
-
 
 int* fill_array(int* array, int array_size){
 

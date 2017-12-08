@@ -20,11 +20,11 @@ int main(int argc, char** argv){
   sqrt_x = my_sqrt(x);
 
   printf("%f\n", sqrt_x);
-
+  return 0;
 }
 
 float my_sqrt(float input){
-  //Wraps sqrt so we can check our inputs
+  /*Wraps sqrt so we can check our inputs*/
 
   return sqrt(input);
 
@@ -32,8 +32,8 @@ float my_sqrt(float input){
 
 float get_x(int index){
 
-  return (float) ((10*index)%7 - 3); //Will vary between +ve and -ve
-
+  return (float) ((10*index)%7 - 3); 
+  /*Will vary between +ve and -ve*/
 }
 
 

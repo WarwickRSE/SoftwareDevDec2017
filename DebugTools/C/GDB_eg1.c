@@ -9,5 +9,5 @@ int main(int argc, char** argv){
     printf("%d\n", a[i]);
     a[i] = 0;
   } 
-
+  return 0;
 }

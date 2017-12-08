@@ -21,9 +21,10 @@ int main(int argc, char** argv){
 
   free(a);
 
-  printf("Random pointer address: %p\n", rand_ptr);
+  printf("Random pointer address: %p\n", (void*)rand_ptr);
   if(!rand_ptr) printf("******** Pointer is Null *******\n");
   printf("%d\n", (rand_ptr == NULL));
   printf("Random pointer data:  %d\n", *rand_ptr);
   printf("Done\n");
+  return 0;
 }

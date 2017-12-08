@@ -35,7 +35,7 @@ int main(int argc, char** argv){
     printf("%d", k);
     sum_last = sum_a;
   }
-
+  return 0;
 }
 
 eg_float sum(eg_float* array, int array_sz){

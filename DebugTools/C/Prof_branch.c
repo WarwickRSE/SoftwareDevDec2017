@@ -12,8 +12,8 @@ int main(int argc, char** argv){
     int data[arraySize];
     int i, j, iters = 1000;
     clock_t start, end;
-    double time;
-    long long sum = 0;
+
+    long sum = 0;
 
 
     for(i = 0; i < arraySize; ++i){
@@ -45,5 +45,7 @@ int main(int argc, char** argv){
 
     end = clock();
     printf("Elapsed time %f s\n", ((double) (end - start)) / CLOCKS_PER_SEC);
+
+  return 0;
 
 }
