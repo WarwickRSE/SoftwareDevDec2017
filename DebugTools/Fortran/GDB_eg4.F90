@@ -70,10 +70,10 @@ SUBROUTINE fill_array(array)
 
   !Fill array with increasing values jumping either 1 or 2
   CALL RANDOM_NUMBER(next_rand)
-  array(1) = next_rand * 4
+  array(1) = FLOOR(next_rand * 4.0)
   DO i =2, array_shape(1)
     CALL RANDOM_NUMBER(next_rand)
-    array(i) = array(i-1) + 1 + next_rand*2
+    array(i) = array(i-1) + 1 + FLOOR(next_rand*2.0)
   ENDDO
 
 #endif
@@ -88,7 +88,7 @@ FUNCTION get_index_of_value(array, target_val)
   INTEGER :: found_at = -1000
   INTEGER, DIMENSION(:) :: array
   INTEGER :: stride
-  INTEGER :: i, j, centre
+  INTEGER :: i, centre
   INTEGER lower, upper, array_sz
   INTEGER, DIMENSION(1) ::array_shape
 
@@ -146,7 +146,7 @@ PROGRAM MAIN
   INTEGER, PARAMETER :: sz = 12
   INTEGER, DIMENSION(sz-1):: array
   INTEGER :: i, target_val, indx
-  CHARACTER(18) :: arg, frmt
+  CHARACTER(18) :: arg
 
   CALL fill_array(array)
 

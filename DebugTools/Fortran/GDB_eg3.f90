@@ -37,12 +37,12 @@ PROGRAM MAIN
 
   USE KINDS
   USE HELPERS
+  IMPLICIT NONE
 
   INTEGER, PARAMETER :: sz = 12
   INTEGER, DIMENSION(:), ALLOCATABLE :: a
   INTEGER :: i
   REAL(KIND=real32) :: x, sqrt_x
-
 
   DO i = 1, 5
     x = get_x(i)

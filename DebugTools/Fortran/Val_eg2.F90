@@ -42,8 +42,8 @@ MODULE RANDOM
   END SUBROUTINE
 END MODULE RANDOM
 
-MODULE helpers
-
+MODULE HELPERS
+ IMPLICIT NONE
 CONTAINS
 
 SUBROUTINE fill_array(array)
@@ -51,7 +51,7 @@ SUBROUTINE fill_array(array)
   USE KINDS
   USE RANDOM
   REAL(KIND=eg_kind), DIMENSION(:) :: array
-  INTEGER :: i
+
 
 #  ifndef DEBUG
   CALL random_init_time()
@@ -93,7 +93,7 @@ PROGRAM MAIN
 
   USE KINDS
   USE helpers
-
+  IMPLICIT NONE
   INTEGER :: i, k
   INTEGER, PARAMETER :: sz = 10
   REAL(KIND=eg_kind), DIMENSION(sz) :: array
@@ -108,7 +108,7 @@ PROGRAM MAIN
   WRITE(*,fmt='(a, i0, a)') "Array of ", sz, " random values to 3dp is:"
   WRITE(*, fmt=frmt) array
 
-  DO i =1, 5
+  DO i = 1, 5
     sum_a = sum_with_loop(array)
     !PRINT*, sum_a
     !Check sum is the same every time

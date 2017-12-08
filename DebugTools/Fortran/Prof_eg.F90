@@ -51,7 +51,7 @@ SUBROUTINE fill_array(array)
   USE KINDS
   USE RANDOM
   REAL(KIND=eg_kind), DIMENSION(:) :: array
-  INTEGER :: i
+
 
 #  ifndef DEBUG
   CALL random_init_time()

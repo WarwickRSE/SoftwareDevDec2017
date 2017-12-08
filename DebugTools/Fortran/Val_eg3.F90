@@ -60,10 +60,10 @@ SUBROUTINE fill_array(array, sz)
 
   !Fill array with increasing values jumping either 1 or 2
   CALL RANDOM_NUMBER(next_rand)
-  array(1) = next_rand * 4
+  array(1) = FLOOR(next_rand * 4.0)
   DO i =2, sz
     CALL RANDOM_NUMBER(next_rand)
-    array(i) = array(i-1) + 1 + next_rand*2
+    array(i) = array(i-1) + 1 + FLOOR(next_rand*2.0)
   ENDDO
 
 #endif
@@ -75,10 +75,10 @@ SUBROUTINE f_wait(sec)
   IMPLICIT NONE
   INTEGER :: sec
   INTEGER :: clock_start, clock_now, clock_counts
-  INTEGER :: i
 
   CALL SYSTEM_CLOCK(clock_start, clock_counts)
   clock_now = clock_start
+
   DO WHILE(clock_now < clock_start + sec*clock_counts)
     CALL SYSTEM_CLOCK(clock_now)
   ENDDO
@@ -91,10 +91,10 @@ PROGRAM MAIN
 
   USE KINDS
   USE HELPERS
-
+  IMPLICIT NONE
   INTEGER, PARAMETER :: sz = 10
   INTEGER, DIMENSION(:), POINTER:: array
-  INTEGER :: i, j
+  INTEGER :: i
   CHARACTER(18) :: frmt
 
   WRITE(frmt, fmt='(a, i5, a)') '(',sz, '(i0, " "))'
