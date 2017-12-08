@@ -22,7 +22,7 @@ int main(int argc, char** argv){
   x = 2.0; n = -1;
   printf("\n%f to the power %d is %f\n", x, n, power(x, n));
 
-
+  return 0;
 }
 
 float power(float x, int n){

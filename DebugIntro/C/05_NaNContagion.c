@@ -42,6 +42,7 @@ int main(int argc, char** argv){
   printf("%f < %f => %d\n", isNaN, isNaN, isNaN < isNaN);
   printf("%f > %f => %d\n", isNaN, isNaN, isNaN > isNaN);
 
+  return 0;
 }
 
 int isNaN(float input){

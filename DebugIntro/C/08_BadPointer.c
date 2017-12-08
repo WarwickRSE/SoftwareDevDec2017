@@ -11,4 +11,5 @@ int main(int argc, char** argv){
   printf("Pointer points to\n");
   printf("%d\n", *ptr);
 
+  return 0;
 }

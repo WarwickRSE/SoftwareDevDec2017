@@ -18,5 +18,6 @@ int main(int argc, char** argv){
   printf("%4.1f C is %4.1f F?\n", tempInC, tempInF);
   printf("Correct answer is %4.1f F\n", correctTempInF);
 
+  return 0;
 }
 

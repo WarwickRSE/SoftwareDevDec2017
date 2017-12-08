@@ -40,4 +40,5 @@ int main(int argc, char** argv){
   end = clock();
   printf("Elapsed time %f s\n", ((double) (end - start)) / CLOCKS_PER_SEC);
 
+  return 0;
 }

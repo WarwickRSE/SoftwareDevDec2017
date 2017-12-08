@@ -49,6 +49,7 @@ int main(int argc, char** argv){
      (sum_onto-init)-sum_f);
   /* If you change the define to double type, change the line above to use sum_d*/
 
+  return 0;
 }
 
 double sum(eg_float* array, int array_sz){

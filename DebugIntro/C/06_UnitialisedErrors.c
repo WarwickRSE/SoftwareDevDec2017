@@ -45,4 +45,5 @@ int main(int argc, char** argv){
   free(array);
   free(array2);
 
+  return 0;
 }
