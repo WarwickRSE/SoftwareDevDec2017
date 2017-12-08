@@ -24,7 +24,7 @@ int main(int argc, char** argv){
 
   fill_array(array, size);
 
-  printf("Array of %d random values, printed to 3dp:");
+  printf("Array of %d random values, printed to 3dp:\n", size);
 
   for(i=0; i<size; i++){
     printf("%6.3f\t", array[i]);
