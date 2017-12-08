@@ -29,7 +29,6 @@ void allocate_grid(grid_type *grid, int min_x, int max_x, int min_y, int max_y)
   grid->n_elements = (size_t)(grid->max_x - grid->min_x+1)
       * (size_t)(grid->max_y-grid->min_y+1);
   grid->data = (float*) malloc(grid->n_elements * sizeof(float));
-  zero_grid(grid);
 }
 
 void assign_grid(grid_type *grid, int min_x, int max_x, int min_y, int max_y,

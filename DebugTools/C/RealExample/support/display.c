@@ -21,7 +21,7 @@ void display_result(grid_type *arr){
     for(ix = arr->min_x+1;ix<=arr->max_x-1;++ix){
       //Get the symbol and colour for the value in this cell
       //Colours are more VT100 terminal codes
-      index = (int)(*(access_grid(arr, ix, iy))/10.0 * (float)(NVALS-1) + 0.5);
+      index = (int)(*(access_grid(arr, ix, iy))/10.0 * (float)(NVALS-1) + 0.5)%3;
       //Write out the special VT100 colour control code and symbol
       printf("%s%c ", colour[index], vals[index]);
       //version without colour code

@@ -1,0 +1,26 @@
+
+This is diff output. The first block (with <) is the buggy version, the second (with >) is working
+
+First bug:
+21c21
+<   assign_grid(&values, 0, nx+1, 1, 1, 1.0);
+---
+>   assign_grid(&values, 0, nx+1, 0, 0, 1.0);
+
+This means that values is completely uninitialised on the strip (0 to nx+1, 0)
+
+Second bug:
+24c24
+<   display_result(&temp_values);
+---
+>   display_result(&values);
+temp_values hasn't been set at this point, so we print some nonsense
+
+30,31c30,31
+<     for (iy=1;iy<ny;++iy){
+<       for (ix=1;ix<nx;++ix){
+---
+>     for (iy=1;iy<=ny;++iy){
+>       for (ix=1;ix<=nx;++ix){
+The top and right cells will never contribute, so the solution is wrong. No debugger will tell you about this!!
+

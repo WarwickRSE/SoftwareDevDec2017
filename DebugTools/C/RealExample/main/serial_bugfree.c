@@ -18,17 +18,17 @@ int main(int argc, char ** argv)
   //10.0 along the right and top
   assign_grid(&values, 0, 0, 0, ny+1, 1.0);
   assign_grid(&values, nx+1, nx+1, 0, ny+1, 10.0);
-  assign_grid(&values, 0, nx+1, 1, 1, 1.0);
+  assign_grid(&values, 0, nx+1, 0, 0, 1.0);
   assign_grid(&values, 0, nx+1, ny+1, ny+1, 10.0);
 
-  display_result(&temp_values);
+  display_result(&values);
   getchar();
 
   //To a C programmer, this looks backwards, but the array is using
   //Fortran ordering deliberately
   for (icycle=0;icycle<500;++icycle){
-    for (iy=1;iy<ny;++iy){
-      for (ix=1;ix<nx;++ix){
+    for (iy=1;iy<=ny;++iy){
+      for (ix=1;ix<=nx;++ix){
         *(access_grid(&temp_values, ix, iy)) = 0.25 * (
             *(access_grid(&values, ix+1, iy  )) +
             *(access_grid(&values, ix  , iy+1)) +
