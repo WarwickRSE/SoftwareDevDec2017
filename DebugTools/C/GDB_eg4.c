@@ -72,7 +72,7 @@ int get_index_of_value(int* array, int array_size, int target){
 
   int stride;
   int i, centre;
-  int lower=1, upper=array_size;
+  int lower=0, upper=array_size-1;
 
   stride = array_size/2;
   centre = array_size/2;
