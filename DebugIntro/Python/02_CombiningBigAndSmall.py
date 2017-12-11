@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
   _sz = 10
   a = 3.0
-  array = range(0, _sz)
+  array = list(range(0, _sz))
   fill_array(array)
 
   print("Array of {0} random values, printed to 3dp:".format(_sz));
