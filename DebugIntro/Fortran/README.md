@@ -7,5 +7,7 @@ For example
 
 Note that some examples use an upper-case extension, `.F90`. This is important as it tells the compiler to use the pre-processor which lets us use the `#define` to control compilation. 
 
-See the C directory for a table of Inf, NaN and signed-zero operations. 
-The code is rather terse, so don't worry if you don't understand it all. A coloured version of the output is included in the parent directory for reference.
+There is also a program 03-05\_InfAndNaNTable. This generates a table of IEEE arithmetic combinations
+The code uses old-style VT100 codes to colour the output: if this doesn't work it can be disabled by compiling with -DNO\_C
+The code itself uses some odd newer Fortran for compactness.
+A coloured version of the output is included in the parent directory for reference.
