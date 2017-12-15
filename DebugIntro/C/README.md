@@ -6,4 +6,6 @@ For example
   `gcc -O0 -g 09_Tarpit -o 09`
 
 03-05\_InfAndNanTable.c generates a table of Floating Point operations involving Inf, NaN and signed zero. 
-The code is rather terse, so don't worry if you don't understand it all. A coloured version of the output is included in the parent directory for reference.
+The code is rather terse, so don't worry if you don't understand it all. 
+A coloured version of the output is included in the parent directory for reference. 
+The code by default tries to colourize using old style terminal characters. If these don't work, compile with -DNO_C to omit colorizing
