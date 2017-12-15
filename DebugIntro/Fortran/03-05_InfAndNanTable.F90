@@ -159,11 +159,11 @@ PROGRAM MAIN
       ENDDO
       PRINT*, ''
     ENDDO
-    CALL Unbold()
     PRINT*, ''
     PRINT*, "________________________________________________________________"
     PRINT*, ''
   ENDDO
+  CALL Unbold()
 
 END PROGRAM MAIN
 
