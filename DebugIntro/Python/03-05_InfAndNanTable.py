@@ -43,10 +43,6 @@ def genTable():
       row = allRows[rowNum]
       print("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}".format(row, op(row, negInf), op(row, -1.0), op(row, negZero), op(row, zero), op(row, 1.0), op(row, Inf), op(row, NaN)))
 
-#     print("%3.1f\t%3.1f\t%3.1f\t", row, op(row,negInf), op(row,-1.0))
-  #    print("%3.1f\t%3.1f\t", op(row,negZero), op(row,zero))
-   #   print("%3.1f\t%3.1f\t%3.1f\n", op(row,1.0), op(row,isInf), op(row,isNaN))
-
     print("____________________________________________________________")
     print("");
 
