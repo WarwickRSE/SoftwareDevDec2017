@@ -13,11 +13,11 @@ if __name__ == "__main__":
   print("{0} + {1} = {2}".format(a, isNaN, a + isNaN))
   print("{0} * {1} = {2}".format(a, isNaN, a * isNaN))
 
-  array =  range(0, _sz)
-  new_array = range(0, _sz)
+  array =  list(range(0, _sz))
+  new_array = list(range(0, _sz))
 
   print("\n This means it can spread. This array is updated by summing each element with its neighbours\n")
-  array[_sz/2] = isNaN
+  array[int(_sz/2)] = isNaN
 
   for j in range(0, 6):
     print("Iter {0}".format(j))
