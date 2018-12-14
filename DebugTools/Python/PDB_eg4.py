@@ -1,5 +1,6 @@
 from __future__ import print_function
 import random
+import math
 norand = False
 debug = False
 
@@ -42,8 +43,8 @@ def get_index_of_value(array, target_val):
   lower = 0
   upper = array_sz-1
 
-  centre = (lower + upper)/2
-  stride = (upper - lower)/2
+  centre = math.trunc((lower + upper)/2)
+  stride = math.trunc((upper - lower)/2)
 
   for i in range(array_sz-1):
     #Actually need only log_2(array_sz) but size-1 is a strict upper
@@ -56,12 +57,12 @@ def get_index_of_value(array, target_val):
       print("")
     if (array[centre] > target_val):
       upper = upper - stride
-      centre = (lower + upper)/2
-      stride = (upper - lower)/2
+      centre = math.trunc((lower + upper)/2)
+      stride = math.trunc((upper - lower)/2)
     elif (array[centre] < target_val):
       lower = lower + stride
-      centre = (lower + upper)/2
-      stride = (upper -lower)/2
+      centre = math.trunc((lower + upper)/2)
+      stride = math.trunc((upper -lower)/2)
     else:
       stride = 0
 
